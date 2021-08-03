@@ -1,5 +1,6 @@
 from django.db import models
 
+π = 3.141592653589793
 
 class NamedEntry(models.Model):
     name = models.CharField(max_length=100)
@@ -15,6 +16,12 @@ class NamedEntry(models.Model):
 class SpaceBody(NamedEntry):
     color = models.CharField(max_length=10)
     diameter = models.FloatField()
+    area = models.FloatField()
+
+    def area_count(self, diameter):
+        self.area = π*diameter^2
+        return self.area
+        
 
 
     class Meta:
@@ -37,6 +44,7 @@ class StarSystem(NamedEntry):
 
 class Star(SpaceBody):
     star_system = models.ForeignKey("universe.StarSystem", on_delete=models.CASCADE)
+    
 
 
 class Planet(SpaceBody):

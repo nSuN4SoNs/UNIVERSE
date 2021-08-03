@@ -1,5 +1,6 @@
 from django.contrib import admin
 from universe.models import (
+    SpaceBody,
     Galaxy,
     StarSystem,
     Star,
@@ -7,6 +8,11 @@ from universe.models import (
     Moon
 )
 # Register your models here.
+@admin.register(SpaceBody)
+class SpaceBodyAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(Galaxy)
 class GalaxyAdmin(admin.ModelAdmin):
     pass
