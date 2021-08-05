@@ -24,7 +24,6 @@ class SpaceBody(NamedEntry):
         self.area = π*diameter^2
         return self.area
 
-    area = area_count()
         
 
 
